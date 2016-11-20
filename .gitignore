@@ -1,8 +1,12 @@
 # Build tooling & assets
-dist/*
+tmp/*
 node_modules/*
+public/js/*
+public/css/*
 
 # Generic
 .DS_Store
+npm-debug.log
 
+# Inverts
 !.gitkeep

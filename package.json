@@ -2,13 +2,23 @@
   "name": "swiss-fox-ts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "public/js/app.js",
   "scripts": {
+    "build": "npm run compile && npm run bundle",
+    "bundle": "rollup -c rollup.config.ts",
+    "clean": "rm -rf tmp/* && touch tmp/.gitkeep && rm -f public/js/app.js",
+    "compile": "tsc",
+    "lint": "tslint -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {
+    "rollup": "^0.36.3",
+    "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "tslint": "^3.15.1",
+    "tslint-config-standard": "^1.5.0",
     "typescript": "^2.0.10"
   }
 }
