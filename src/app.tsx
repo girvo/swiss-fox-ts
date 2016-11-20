@@ -3,15 +3,9 @@
  */
 
 function Hello (): void {
-  console.log('Welcome to the jungle...')
+  console.log('Hello, World...')
 
   return
-}
-
-class Example {
-  hello () {
-    return
-  }
 }
 
 Hello()

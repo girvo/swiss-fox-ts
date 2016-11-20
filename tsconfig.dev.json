@@ -5,7 +5,7 @@
     "noImplicitAny": true,
     "outDir": "/var/tmp/ts",
     "moduleResolution": "node",
-    "sourceMap": false
+    "inlineSourceMap": true
   },
   "include": [
     "src/**/*.tsx",

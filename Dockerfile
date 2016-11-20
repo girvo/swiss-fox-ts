@@ -19,6 +19,9 @@ ADD package.json /app/package.json
 RUN cd /app && npm install && cd /
 ADD . /app
 ENV NODE_ENV=$env
+RUN mkdir -p /var/tmp/ts /tmp/ts-server
+WORKDIR /app
+RUN npm run build
 
 # Add our service configs
 ADD docker/supervisor.$env.conf /etc/supervisor.conf

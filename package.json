@@ -4,19 +4,28 @@
   "description": "",
   "main": "public/js/app.js",
   "scripts": {
-    "build": "npm run compile && npm run bundle",
-    "bundle": "rollup -c rollup.config.ts",
-    "clean": "rm -rf tmp/* && touch tmp/.gitkeep && rm -f public/js/app.js",
-    "compile": "tsc",
+    "build": "npm run clean && npm run compile && npm run bundle",
+    "bundle": "rollup -c rollup.config.js",
+    "clean": "rm -rf /var/tmp/ts/* && mkdir -p /var/tmp/ts && rm -f public/js/app.*",
+    "compile": "tsc -p tsconfig.json",
     "lint": "tslint -c tslint.json 'src/**/*.tsx' 'src/**/*.ts'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node -P tsconfig.server.json --cache-directory /tmp/ts-server server/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-build": "tsc -p tsconfig.dev.json -w",
+    "watch-bundle": "rollup -c rollup.config.js -w"
   },
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {
+    "@types/node": "^6.0.48",
     "rollup": "^0.36.3",
     "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-node-builtins": "^2.0.0",
+    "rollup-plugin-node-globals": "^1.1.0",
     "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-sourcemaps": "^0.4.1",
+    "rollup-watch": "^2.5.0",
+    "ts-node": "^1.7.0",
     "tslint": "^3.15.1",
     "tslint-config-standard": "^1.5.0",
     "typescript": "^2.0.10"

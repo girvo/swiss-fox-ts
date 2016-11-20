@@ -3,6 +3,7 @@ tmp/*
 node_modules/*
 public/js/*
 public/css/*
+server/dist/*
 
 # Generic
 .DS_Store
