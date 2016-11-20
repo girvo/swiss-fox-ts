@@ -3,7 +3,7 @@
  */
 
 function Hello (): void {
-  console.log('Hello, World...')
+  console.log('Hello, again...')
 
   return
 }

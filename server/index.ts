@@ -6,14 +6,14 @@ import * as http from 'http'
 import * as path from 'path'
 import * as fs from 'fs'
 
-http.createServer(function (request, response) {
-    console.log('request starting...')
+const publicPath = [__dirname, '..', 'public']
 
+http.createServer(function (request, response) {
     let filePath = '.' + request.url
     if (filePath === './') {
         filePath = './index.html'
     }
-    filePath = path.resolve(__dirname, '..', 'public', filePath)
+    filePath = path.resolve(...publicPath, filePath)
 
     let extname = path.extname(filePath)
     let contentType = 'text/html'
@@ -38,10 +38,10 @@ http.createServer(function (request, response) {
             break
     }
 
-    fs.readFile(filePath, function(error, content) {
+    fs.readFile(filePath, function (error, content) {
         if (error) {
             if (error.code === 'ENOENT') {
-              const path404 = path.resolve(__dirname, '..', 'public', './404.html')
+              const path404 = path.resolve(...publicPath, './404.html')
               fs.readFile(path404, function (err, content) {
                   if (err) {
                     response.writeHead(500, { 'Content-Type': 'text/plain' })
