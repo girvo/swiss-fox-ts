@@ -1,0 +1,8 @@
+# Build tooling & assets
+dist/*
+node_modules/*
+
+# Generic
+.DS_Store
+
+!.gitkeep

@@ -1,0 +1,8 @@
+{
+    "project": "sfts",
+    "volume": ".:/app",
+    "db": { "type": "none" },
+    "env": {
+      "VIRTUAL_PORT": "3000"
+    }
+}
